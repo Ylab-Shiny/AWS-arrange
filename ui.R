@@ -92,69 +92,69 @@ body <- dashboardBody(
     # 
     #         # ヒートマップの描画
     #         plotOutput("gp")
-
-# color -------------------------------------------------------------------
-
-# tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),　# 一番上の線
-# tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles2.css")),　#追加
-# tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles3.css")),　#追加
-
-# Also add some custom CSS to make the title background area the same #追加
-# color as the rest of the header.
-
-# tags$head(tags$style(HTML('
-#                           /* logo */
-#                           .skin-blue .main-header .logo {
-#                           background-color: #20b2aa;
-#                           }', # ロゴ部分背景色
-# 
-#                           '
-#                           /* logo when hovered */
-#                           .skin-blue .main-header .logo:hover {
-#                           background-color: #5f9ea0;
-#                           }', # ロゴ部分選択時背景色
-# 
-#                           '
-#                           /* navbar (rest of the header) */
-#                           .skin-blue .main-header .navbar {
-#                           background-color: #20b2aa;
-#                           }', # ロゴ以外上部背景色
-# 
-#                           '
-#                           /* main sidebar */
-#                           .skin-blue .main-sidebar {
-#                           background-color: #585858;
-#                           }', # サイドバー内背景色
-# 
-#                           '
-#                           /* active selected tab in the sidebarmenu */
-#                           .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
-#                           background-color: #585858;
-#                           }', # サイドバー ( 選択項目①)
-# 
-#                           '
-#                           /* other links in the sidebarmenu */
-#                           .skin-blue .main-sidebar .sidebar .sidebar-menu a{
-#                           background-color: #585858;
-#                           color: #FFFFFF;
-#                           }', # サイドバー ( 選択項目②･③) # 文字色
-# 
-#                           '
-#                           /* other links in the sidebarmenu when hovered */
-#                           .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
-#                           background-color: #424242;
-#                           }', # 選択時背景色
-# 
-#                           '
-#                           /* toggle button when hovered  */
-#                           .skin-blue .main-header .navbar .sidebar-toggle:hover{
-#                           background-color: #5f9ea0;
-#                           }'　# サイドバー選択時背景色 (三本線のやつ)
-# 
-# )))
-
-   )
- )
+    
+    # color -------------------------------------------------------------------
+    
+    # tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),　# 一番上の線
+    # tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles2.css")),　#追加
+    # tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles3.css")),　#追加
+    
+    # Also add some custom CSS to make the title background area the same #追加
+    # color as the rest of the header.
+    
+    # tags$head(tags$style(HTML('
+    #                           /* logo */
+    #                           .skin-blue .main-header .logo {
+    #                           background-color: #20b2aa;
+    #                           }', # ロゴ部分背景色
+    # 
+    #                           '
+    #                           /* logo when hovered */
+    #                           .skin-blue .main-header .logo:hover {
+    #                           background-color: #5f9ea0;
+    #                           }', # ロゴ部分選択時背景色
+    # 
+    #                           '
+    #                           /* navbar (rest of the header) */
+    #                           .skin-blue .main-header .navbar {
+    #                           background-color: #20b2aa;
+    #                           }', # ロゴ以外上部背景色
+    # 
+    #                           '
+    #                           /* main sidebar */
+    #                           .skin-blue .main-sidebar {
+    #                           background-color: #585858;
+    #                           }', # サイドバー内背景色
+    # 
+    #                           '
+    #                           /* active selected tab in the sidebarmenu */
+    #                           .skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+    #                           background-color: #585858;
+    #                           }', # サイドバー ( 選択項目①)
+    # 
+    #                           '
+    #                           /* other links in the sidebarmenu */
+    #                           .skin-blue .main-sidebar .sidebar .sidebar-menu a{
+    #                           background-color: #585858;
+    #                           color: #FFFFFF;
+    #                           }', # サイドバー ( 選択項目②･③) # 文字色
+    # 
+    #                           '
+    #                           /* other links in the sidebarmenu when hovered */
+    #                           .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+    #                           background-color: #424242;
+    #                           }', # 選択時背景色
+    # 
+    #                           '
+    #                           /* toggle button when hovered  */
+    #                           .skin-blue .main-header .navbar .sidebar-toggle:hover{
+    #                           background-color: #5f9ea0;
+    #                           }'　# サイドバー選択時背景色 (三本線のやつ)
+    # 
+    # )))
+    
+  )
+)
 
 
 # 構成要素の組み立て ---------------------------------------------------------------

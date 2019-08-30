@@ -22,6 +22,7 @@ library(tidyverse)
 library(zoo)
 library(hms)
 library(scales)
+library(gridExtra)
 
 # browser設定 ---------------------------------------------------------------
 options(shiny.launch.browser = T)
@@ -71,7 +72,7 @@ shinyServer(function(input, output, session){
     
     return(firstData)
   })
-
+  
   # ヒートマップ列選択の設定UIの出力 -------------------------------------------------------
   
   
@@ -127,8 +128,8 @@ shinyServer(function(input, output, session){
   #Gatherは複数の列を取得し、必要に応じて他のすべての列を複製してキーと値のペアに折りたたみます。
   passDatahm <- reactive({
     firstData <- 
-    
-    return(firstData)
+      
+      return(firstData)
   })
   # 選択された列系統と時刻ラベルを抽出したデータのテーブルの出力 ------------------------------------------
   output$DataTable <- renderDataTable({
@@ -224,20 +225,23 @@ shinyServer(function(input, output, session){
                week = format(as.POSIXct(label), "%W"),
                month = format(as.POSIXct(label), "%m"))
       
+      data_heatmap$P_con[data_heatmap$P_con > input$RangeY[2]] <- NA
+      
       
       # ヒートマップの出力 ---------------------------------------------------------------
-      output$heatm <- renderPlot({
-        # uiからの情報を受け取るもの
-        if (!is.null(input$file)){
-          gp <- ggplot(data = data_heatmap,aes(x = day, y = time)) +
-            geom_raster(aes_string(fill = the_colname)) + scale_fill_gradient(low = "blue", high = "orange") +
-            coord_cartesian(expand = F)
-          # 出力
-          
-        } else {
-          print(NULL)
-        }
-      })
+      #output$heatm <- renderPlot({
+      # uiからの情報を受け取るもの
+      # if (!is.null(input$file)){
+      gp <- ggplot(data = data_heatmap,aes(x = day, y = time, fill = P_con)) +
+        #       geom_raster(aes_string(fill = P_con)) + scale_fill_gradient(low = "blue", high = "orange") +
+        geom_raster() + scale_fill_gradient(low = "blue", high = "orange") +
+        coord_cartesian(expand = F)
+      # 出力
+      
+      #  } else {
+      #    print(NULL)
+      #  }
+      #})
       
       
       
@@ -318,21 +322,20 @@ shinyServer(function(input, output, session){
   #          month = format(as.POSIXct(label), "%m"))
   
   
-# # ヒートマップの出力 ---------------------------------------------------------------
-#   output$heatm <- renderPlot({
-#     # uiからの情報を受け取るもの
-#     if (!is.null(input$file)){
-#       gp <- ggplot(data = data_heatmap,aes(x = day, y = time)) +
-#         geom_raster(aes_string(fill = the_colname)) + scale_fill_gradient(low = "blue", high = "orange") +
-#         coord_cartesian(expand = F)
-#       # 出力
-#       print(gp)
-#     } else {
-#       print(NULL)
-#     }
-#   })
+  # # ヒートマップの出力 ---------------------------------------------------------------
+  #   output$heatm <- renderPlot({
+  #     # uiからの情報を受け取るもの
+  #     if (!is.null(input$file)){
+  #       gp <- ggplot(data = data_heatmap,aes(x = day, y = time)) +
+  #         geom_raster(aes_string(fill = the_colname)) + scale_fill_gradient(low = "blue", high = "orange") +
+  #         coord_cartesian(expand = F)
+  #       # 出力
+  #       print(gp)
+  #     } else {
+  #       print(NULL)
+  #     }
+  #   })
   
   # file=圧縮ファイル,URL,パイプなどの「一般化されたファイル」を作成,オープン,クローズする機能
   
 })
-
